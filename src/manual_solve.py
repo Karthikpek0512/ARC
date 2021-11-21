@@ -13,11 +13,84 @@ import re
 #def solve_0dfd9992(x):
 #    return x
 
-#def solve_3aa6fb7a(x):
-#    return x
-
-def solve_253bf280(x):
+def solve_22eb0ac0(x):
+    rows = x.shape[0]
+    columns = x.shape[1]
+    for i in range(0,rows-1):
+        if(x[i][0] != 0):
+            if(x[i][0] == x[i][columns-1]):
+                for j in range(0,columns-1):
+                    x[i][j] = x[i][0]
     return x
+
+# def top_d06dbe6(x,pos_x,pos_y):
+#     columns = x.shape[1]
+    
+#     if((pos_x < (0)) or (pos_y == columns)):
+#         return
+    
+#     if((pos_x-1)<0):
+#         return
+#     x[pos_x-1][pos_y] = 5;
+    
+#     if((pos_x-2)<0):
+#         return
+#     x[pos_x-2][pos_y] = 5;
+    
+#     if((pos_y+1) == columns):
+#         return
+#     x[pos_x-2][pos_y+1] = 5;
+    
+#     if((pos_y+2)<0):
+#         return
+#     x[pos_x-2][pos_y+2] = 5; 
+
+#     return top_d06dbe6(x,pos_x-2,pos_y+2)
+
+# def bottom_d06dbe6(x,pos_x,pos_y):
+#     rows = x.shape[0]
+    
+#     if((pos_x >= (rows)) or (pos_y < 0 )):
+#         return
+    
+#     if((pos_x+1) >= rows):
+#         return
+#     x[pos_x+1][pos_y] = 5;
+    
+#     if((pos_x+2) >= rows):
+#         return
+#     x[pos_x+2][pos_y] = 5;
+    
+#     if((pos_y-1) < 0):
+#         return
+#     x[pos_x+2][pos_y-1] = 5;
+    
+#     if((pos_y-2)<0):
+#         return
+#     x[pos_x+2][pos_y-2] = 5; 
+
+#     return bottom_d06dbe6(x,pos_x+2,pos_y-2)
+    
+
+# def solve_d06dbe63(x):
+#     mid = 8
+#     rows = x.shape[0]
+#     columns = x.shape[1]
+#     mid_x = 0
+#     mid_y = 0
+#     for i in range(0,rows-1):
+#         for j in range(0,columns-1):
+#             if(x[i][j] == mid):
+#                 mid_x = i
+#                 mid_y = j
+#     top_d06dbe6(x,mid_x,mid_y)
+#     bottom_d06dbe6(x,mid_x,mid_y)
+#     return x
+    
+
+# def solve_6150a2bd(x):
+#     x = np.flip(x)
+#     return x
 
 def main():
     # Find all the functions defined in this file whose names are
