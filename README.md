@@ -4,14 +4,33 @@ This repository contains solution for 3 tasks in the The Abstraction and Reasoni
 Please note that all grids visually represented in the tasks are 2-d array and each color is represented by a number from 0-9 Ex : Back is represented by zero.
 
 ## Below is snapshot of task_22eb0ac0
-![task_22eb0ac0] (https://github.com/Karthikpek0512/ARC/blob/master/Tasks/22eb0ac0.PNG)
+![task_22eb0ac0](https://github.com/Karthikpek0512/ARC/blob/master/Tasks/22eb0ac0.PNG)
 
 ### Description of task
-The task is to analyse each row in the grid. When the  start and end point of the row in the grid is the same colour the expected output is to link the two points with the same color
+The task is to analyse each row in the grid horizontally. When the  start and end point of the row in the grid is the same colour the expected output is to link the two points with the same color.
 
 ### Transformation required
-Pseudo logic is to define a function that accepts a 2-d array as input. The function should then traverse the each row of the array, when the start and end point is the same fill the row with the same number.
+A python function that accepts a 2-d array as input. The function should then traverse each row of the array, when the start and end point is the same fill the row with the same number.
 Please refer to comments in the code https://github.com/Karthikpek0512/ARC/blob/master/src/manual_solve.py for detailed comments on the rationale of the code.
+
+### Testing results
+The method provided correct result for all test and training grids.
+
+## Below is snapshot of task_6cdd2623
+![task_6cdd2623](https://github.com/Karthikpek0512/ARC/blob/master/Tasks/6cdd2623.PNG)
+
+### Description of task
+The task is to analyse each row in the grid  horizontally and then vertically. When the  start and end point of the row in the grid is the same colour when traversing horizontally they should connected by the same colour.
+While traversing vertically if the the start and end are same color (should also be the same colour as horizontal match) then they are connected by same colour. 
+Once the vertical and horizontal elements are connected the grids filled with colours outside of the link should be detaulted to black(ie.,0). Refer Task demonstration ex 3 which covers all scenarios.
+
+### Transformation required
+A python function that accepts a 2-d array as input. The function should first traverse each row of the array, when the start and end point is the same fill the row with the same number also store the number.
+Next is vertical traversal to find the start and end points with same value and connected them with same number . Finally numbers outside of the link should be changed to zero(black)
+Please refer to comments in the code https://github.com/Karthikpek0512/ARC/blob/master/src/manual_solve.py for detailed comments on the rationale of the code.
+
+### Testing results
+The method provided correct result for all test and training grids.
 
 
 # Original forked repository description
