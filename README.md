@@ -30,7 +30,7 @@ Next is vertical traversal to find the start and end points with same value and 
 Please refer to comments in the code https://github.com/Karthikpek0512/ARC/blob/master/src/manual_solve.py for detailed comments on the rationale of the code.
 
 ### Testing results
-The method provided correct result for all test and training grids.
+The method provided correct result for all test and training grids. 
 
 
 ## Below is snapshot of task_d06dbe63
@@ -43,10 +43,25 @@ The task is to traverse from a filled point in the grid to the end of the grid b
 A python function that accepts a 2-d array as input. The function should first traverse up and across(right) from the filled point and then traverse down and across (left) from mid point to end of array/grid.
 Please refer to comments in the code https://github.com/Karthikpek0512/ARC/blob/master/src/manual_solve.py for detailed comments on the rationale of the code.
 
-##Conclusion and commanalities
-
 ### Testing results
 The method provided correct result for all test and training grids.
+
+
+## Conclusion and commonalities
+All solve methods use numpy arrays and python iterators to traverse the array.Numpy in-built functions like where, shape simplified the code. Althought commented out in the final commit, 
+solution for 6150a2bd was completed with a simple np.flip inbuilt function instead of complicated iteration. This is great example of the simplification using numpy.
+
+It can see from the final solution that task 6cdd2623 (traversing rows) and d06dbe63 (traversing rows and columns) are very similar and could be generalised into a single algorithm/method which can work in both tasks. 
+Solution to also involves horizontal and vertical traversing but since it involves start from a point and traversing using a certain pattern till the end of the array - generalization of the 3 tasks together is not possible using the the literal coding methods employed.
+It can also be noted that the solutions are overfitted to the tasks that they are meant to solve and would not perform well on other tasks.
+
+## Chollet paper conclusions and relationship to observations
+The main use case behind (Abstract Reasoning Corpus) ARC proposed by Chollet [The Measure of Intelligence](https://arxiv.org/abs/1911.01547) is based on the observation that contemperary AI benchamarking of intelligence by comparing performance in specific task against a human is masking the system's generailization power.
+This has also been noted in several AI papers where an algorithm or system performs very well on training/test datasets but fails to perform well in real-world scenarios due to lack of generailization. Chollet proposes that ARC can used as a fair measure of intelligence between humans and AI systems . This will also helper reaserchers wishing to replicate human like generailization.
+
+Some of the shortcoming of ARC noted in the paper can also be observed in our results. Firstly, ARC has limted tasks. So similar to the solutions above someone with time can employ shortcut strategies to solve tasks by programming rather than feturing intellingence.
+Also as noted in the paper since the tasks currently provide a binary result it is not possible to tune the solver based on feedback till the essential result is achieved.
+Finally, ARC currently does not measure a quantiative measure of generalization, this would be a shortcoming when comparing two future ARC solvers performing identically on the tasks.
 
 
 # Original forked repository description
