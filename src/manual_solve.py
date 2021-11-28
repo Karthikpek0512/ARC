@@ -8,6 +8,8 @@
  Task desciption, Transformation summary , conclusion remarks and issue raised in
  Chollet paper are captured in the README file in repo.
  
+ All changes were directly pushed to master (no branches) considering only one file and 3 methods were changed in the repo.
+ 
  Code comments are captured inline here.
  
 '''

@@ -1,7 +1,7 @@
 # Purpose of this fork/repository
 
 This repository contains solution for 3 tasks in the The Abstraction and Reasoning Corpus (ARC). Further details on ARC data and testing interface for the tasks is provided in the desciption of the orginal respository below.
-Please note that all grids visually represented in the tasks are 2-d array and each color is represented by a number from 0-9 Ex : Back is represented by zero.
+Please note that all grids visually represented in the tasks are 2-d arrays and each color is represented by a number from 0-9 Ex : Black is represented by zero.
 
 ## Below is snapshot of task_22eb0ac0
 ![task_22eb0ac0](https://github.com/Karthikpek0512/ARC/blob/master/Tasks/22eb0ac0.PNG)
@@ -28,6 +28,22 @@ Once the vertical and horizontal elements are connected the grids filled with co
 A python function that accepts a 2-d array as input. The function should first traverse each row of the array, when the start and end point is the same fill the row with the same number also store the number.
 Next is vertical traversal to find the start and end points with same value and connected them with same number . Finally numbers outside of the link should be changed to zero(black)
 Please refer to comments in the code https://github.com/Karthikpek0512/ARC/blob/master/src/manual_solve.py for detailed comments on the rationale of the code.
+
+### Testing results
+The method provided correct result for all test and training grids.
+
+
+## Below is snapshot of task_d06dbe63
+![task_d06dbe63](https://github.com/Karthikpek0512/ARC/blob/master/Tasks/d06dbe63.PNG)
+
+### Description of task
+The task is to traverse from a filled point in the grid to the end of the grid by following a certain pattern and fill with grey color. Two steps vertically (up/down) and two steps across (left/right) from the mid point till end of grid 
+
+### Transformation required
+A python function that accepts a 2-d array as input. The function should first traverse up and across(right) from the filled point and then traverse down and across (left) from mid point to end of array/grid.
+Please refer to comments in the code https://github.com/Karthikpek0512/ARC/blob/master/src/manual_solve.py for detailed comments on the rationale of the code.
+
+##Conclusion and commanalities
 
 ### Testing results
 The method provided correct result for all test and training grids.
