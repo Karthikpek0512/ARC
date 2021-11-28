@@ -48,7 +48,7 @@ The method provided correct result for all test and training grids.
 
 
 ## Conclusion and commonalities
-All solve methods use numpy arrays and python iterators to traverse the array.Numpy in-built functions like where, shape simplified the code. Althought commented out in the final commit, 
+All solve methods use numpy arrays and python iterators to traverse the array.Numpy in-built functions like where, shape simplified the code. Although commented out in the final commit, 
 solution for 6150a2bd was completed with a simple np.flip inbuilt function instead of complicated iteration. This is great example of the simplification using numpy.
 
 It can see from the final solution that task 6cdd2623 (traversing rows) and d06dbe63 (traversing rows and columns) are very similar and could be generalised into a single algorithm/method which can work in both tasks. 
@@ -57,9 +57,9 @@ It can also be noted that the solutions are overfitted to the tasks that they ar
 
 ## Chollet paper conclusions and relationship to observations
 The main use case behind (Abstract Reasoning Corpus) ARC proposed by Chollet [The Measure of Intelligence](https://arxiv.org/abs/1911.01547) is based on the observation that contemperary AI benchamarking of intelligence by comparing performance in specific task against a human is masking the system's generailization power.
-This has also been noted in several AI papers where an algorithm or system performs very well on training/test datasets but fails to perform well in real-world scenarios due to lack of generailization. Chollet proposes that ARC can used as a fair measure of intelligence between humans and AI systems . This will also helper reaserchers wishing to replicate human like generailization.
+This has also been noted in several AI papers where an algorithm or system performs very well on training/test datasets but fails to perform well in real-world scenarios due to lack of generailization. Chollet proposes that ARC can used as a fair measure of intelligence between humans and AI systems . This will also help reaserchers wishing to replicate human like generailization.
 
-Some of the shortcoming of ARC noted in the paper can also be observed in our results. Firstly, ARC has limted tasks. So similar to the solutions above someone with time can employ shortcut strategies to solve tasks by programming rather than feturing intellingence.
+Some of the shortcoming of ARC noted in the paper can also be observed in our results. Firstly, ARC has limted tasks. So similar to the solutions above someone with time can employ shortcut strategies to solve tasks by programming rather than feturing intelligence.
 Also as noted in the paper since the tasks currently provide a binary result it is not possible to tune the solver based on feedback till the essential result is achieved.
 Finally, ARC currently does not measure a quantiative measure of generalization, this would be a shortcoming when comparing two future ARC solvers performing identically on the tasks.
 
