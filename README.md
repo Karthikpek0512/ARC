@@ -1,7 +1,9 @@
-# Purpose of this fork
+# Purpose of this fork/repository
 
-This repository contains solution for 3 tasks in the The Abstraction and Reasoning Corpus (ARC). Further details on ARC data 
+This repository contains solution for 3 tasks in the The Abstraction and Reasoning Corpus (ARC). Further details on ARC data and testing interface for the tasks is provided in the 
 
+
+![task_22eb0ac0]https://github.com/Karthikpek0512/ARC/blob/master/Tasks/22eb0ac0.PNG
 
 
 # Original forked repository description
