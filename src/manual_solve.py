@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+'''
+ Student ID - 21249298
+ Name - Karthik Elangkumaran
+ Git URL - https://github.com/Karthikpek0512/ARC.git 
+'''
+
 import os, sys
 import json
 import numpy as np
@@ -16,10 +22,10 @@ import re
 def solve_22eb0ac0(x):
     rows = x.shape[0]
     columns = x.shape[1]
-    for i in range(0,rows-1):
+    for i in range(0,rows):
         if(x[i][0] != 0):
             if(x[i][0] == x[i][columns-1]):
-                for j in range(0,columns-1):
+                for j in range(0,columns):
                     x[i][j] = x[i][0]
     return x
 
@@ -88,9 +94,9 @@ def solve_22eb0ac0(x):
 #     return x
     
 
-# def solve_6150a2bd(x):
-#     x = np.flip(x)
-#     return x
+def solve_6150a2bd(x):
+    x = np.flip(x)
+    return x
 
 def main():
     # Find all the functions defined in this file whose names are
