@@ -20,14 +20,33 @@ import re
 #    return x
 
 def solve_22eb0ac0(x):
-    rows = x.shape[0]
-    columns = x.shape[1]
-    for i in range(0,rows):
-        if(x[i][0] != 0):
-            if(x[i][0] == x[i][columns-1]):
-                for j in range(0,columns):
-                    x[i][j] = x[i][0]
-    return x
+    rows,columns = x.shape
+    y = x.copy()
+    for row in range(0,rows):      
+        if(y[row][0] == y[row][columns-1] ):
+            for column in range(0,columns):
+                y[row][column] = y[row][0]
+    return y
+
+def solve_6cdd2623(x):
+    rows,columns = x.shape
+    row_traverse = x.copy()
+    column_traverse = x.copy()
+    match_val = 0
+    for row in range(0,rows):
+        for column in range(0,columns):
+            if row_traverse[row][0] == row_traverse[row][columns-1]:
+                match_val = max(row_traverse[row][0],match_val)
+                row_traverse[row][column] = row_traverse[row][0]
+            else:
+                  row_traverse[row][column] = 0
+    for column in range(0,columns): 
+            for row in range(0,rows):
+                if column_traverse[0][column] == column_traverse[rows-1][column] == match_val:
+                    column_traverse[row][column] = column_traverse[0][column]
+                else:
+                      column_traverse[row][column] = 0
+    return (np.where(row_traverse == 0, column_traverse, row_traverse))
 
 # def top_d06dbe6(x,pos_x,pos_y):
 #     columns = x.shape[1]
@@ -93,10 +112,10 @@ def solve_22eb0ac0(x):
 #     bottom_d06dbe6(x,mid_x,mid_y)
 #     return x
     
-
-def solve_6150a2bd(x):
-    x = np.flip(x)
-    return x
+# This is a working solution for  6150a2bd - commented out because its very simple
+# def solve_6150a2bd(x):
+#     x = np.flip(x)
+#     return x
 
 def main():
     # Find all the functions defined in this file whose names are
