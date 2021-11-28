@@ -1,6 +1,13 @@
-# The Abstraction and Reasoning Corpus (ARC)
+# Purpose of this fork
 
-This repository contains the ARC task data, as well as a browser-based interface for humans to try their hand at solving the tasks manually.
+This repository contains solution for 3 tasks in the The Abstraction and Reasoning Corpus (ARC). Further details on ARC data 
+
+
+
+# Original forked repository description
+## The Abstraction and Reasoning Corpus (ARC)
+
+Original repository contains the ARC task data, as well as a browser-based interface for humans to try their hand at solving the tasks manually.
 
 *"ARC can be seen as a general artificial intelligence benchmark, as a program synthesis benchmark, or as a psychometric intelligence test. It is targeted at both humans and artificially intelligent systems that aim at emulating a human-like form of general fluid intelligence."*
 
