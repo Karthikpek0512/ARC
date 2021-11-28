@@ -1,9 +1,17 @@
 # Purpose of this fork/repository
 
-This repository contains solution for 3 tasks in the The Abstraction and Reasoning Corpus (ARC). Further details on ARC data and testing interface for the tasks is provided in the 
+This repository contains solution for 3 tasks in the The Abstraction and Reasoning Corpus (ARC). Further details on ARC data and testing interface for the tasks is provided in the desciption of the orginal respository below.
+Please note that all grids visually represented in the tasks are 2-d array and each color is represented by a number from 0-9 Ex : Back is represented by zero.
 
+## Below is snapshot of task_22eb0ac0
+![task_22eb0ac0] (https://github.com/Karthikpek0512/ARC/blob/master/Tasks/22eb0ac0.PNG)
 
-![task_22eb0ac0]https://github.com/Karthikpek0512/ARC/blob/master/Tasks/22eb0ac0.PNG
+### Description of task
+The task is to analyse each row in the grid. When the  start and end point of the row in the grid is the same colour the expected output is to link the two points with the same color
+
+### Transformation required
+Pseudo logic is to define a function that accepts a 2-d array as input. The function should then traverse the each row of the array, when the start and end point is the same fill the row with the same number.
+Please refer to comments in the code https://github.com/Karthikpek0512/ARC/blob/master/src/manual_solve.py for detailed comments on the rationale of the code.
 
 
 # Original forked repository description
