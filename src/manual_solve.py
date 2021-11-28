@@ -4,6 +4,12 @@
  Student ID - 21249298
  Name - Karthik Elangkumaran
  Git URL - https://github.com/Karthikpek0512/ARC.git 
+ 
+ Task desciption, Transformation summary , conclusion remarks and issue raised in
+ Chollet paper are captured in the README file in repo.
+ 
+ Code comments are captured inline here.
+ 
 '''
 
 import os, sys
@@ -16,46 +22,86 @@ import re
 ### result. Name them according to the task ID as in the three
 ### examples below. Delete the three examples. The tasks you choose
 ### must be in the data/training directory, not data/evaluation.
+
+'''
+Description of solve_22eb0ac0
+A python function that accepts a 2-d array as input. The function then traverses each row of the array, when the start and end point is the same (horizontally) fill the row with the same number.
+'''
 def solve_22eb0ac0(x):
+    #get shape of the grid and copy input grid to a local variable
     rows,columns = x.shape
     y = x.copy()
-    for row in range(0,rows):      
+    for row in range(0,rows): 
+        #Below is the condition to check if start and end point are horizontally the same
         if(y[row][0] == y[row][columns-1] ):
+            #This iteration is to fill the row with same colour
             for column in range(0,columns):
                 y[row][column] = y[row][0]
     return y
 
+'''
+Description of solve_6cdd2623
+A python function that accepts a 2-d array as input. The function then creates two copies of the array for horizontal and vertical traversal.  
+Each row of the row-traverse array, start and end points (horizontal) are compared, when the start and end point is the same  the row is filled with same number and matching number is also stored.
+Each row of the colomn-traverse array, start and end points are compared, when the start and end point is the same  the column is filled with same number.
+np.where is used to combine the two matrices (non-zero grids) and return the result
+'''
+
 def solve_6cdd2623(x):
+    #get shape of input grid and also create two copies for row and coloumn traversal
     rows,columns = x.shape
     row_traverse = x.copy()
     column_traverse = x.copy()
     match_val = 0
+    #Row traversal
     for row in range(0,rows):
         for column in range(0,columns):
+            #compare start and end point of each row and if matches fill row with same number
             if row_traverse[row][0] == row_traverse[row][columns-1]:
+                #this assigns the non-zero number that matches horizontally. This is used in vertical traversal
                 match_val = max(row_traverse[row][0],match_val)
                 row_traverse[row][column] = row_traverse[row][0]
+            #Fill all non-matching grids with zero    
             else:
                   row_traverse[row][column] = 0
+    #Column traversal
     for column in range(0,columns): 
+             #compare start and end point of each column and if matches fill column with same number
             for row in range(0,rows):
                 if column_traverse[0][column] == column_traverse[rows-1][column] == match_val:
                     column_traverse[row][column] = column_traverse[0][column]
+                #Fill all non-matching grids with zero 
                 else:
                       column_traverse[row][column] = 0
+    #combine row and column traverse output (non-zero grids) and return final result                  
     return (np.where(row_traverse == 0, column_traverse, row_traverse))
 
+'''
+Description of solve_6cdd2623
+A python function that accepts a 2-d array as input. The function first determines the position of the filled grid.  
+First iteration is traversing vertically two up and filling the grid with 5 (grey) , two across (right) and filling the grid with 5 (grey) till end of array.
+Second iteration is traversing vertically two down and filling the grid with 5 (grey) , two across (left) and filling the grid with 5 (grey) till end of array.
+'''
+
 def solve_d06dbe63(x):
+#find shape and copy to local variable
     x = x.copy()
     rows, columns = x.shape
+##Identify co-ordinates of filled point     
     start_row,start_column = np.where(x == x.max())
     start_row = int(start_row)
+##Initiate variable to iterate vertically up from filled point
     up_traverse = int (start_column)
     iter_up = 1
-## Iteratively traverse up midpoint moving 2 points up and 3 across till end of array 
+## Iteratively traverse up from fill point moving 2 points up and 2 across(right) till end of array 
     for row in range(start_row-1, -1,-1):
+        #In the first and every alterate iteration this conditional is used to fill the vertical point (Current position) 
+        if (iter_up % 2 == 1) :
+            x[row][up_traverse] = 5
+        #In the second and every alterate iteration this conditional is used to fill the vertical point (Current position) and 2 points across (right)
         if (iter_up % 2 == 0) :
             x[row][up_traverse] = 5
+            #Check to see if end of array is reached
             if(up_traverse+1 < columns):
                 x[row][up_traverse+1] = 5
             else:
@@ -65,16 +111,21 @@ def solve_d06dbe63(x):
             else:
                 break
             up_traverse+=2
-        if (iter_up % 2 == 1) :
-            x[row][up_traverse] = 5
+        #Increment iteration variable    
         iter_up +=1
-##initiate variable for next iteration        
+        
+##Initiate variable to iterate vertically from filled point      
     down_traverse = int (start_column)
     iter_down = 1
-## Iteratively traverse up midpoint moving 2 points up and 2 across till end of array    
+##Iteratively traverse down midpoint moving 2 points down and 2 across(left) till end of array    
     for row in range(start_row+1, rows):
+        #In the first and every alterate iteration this conditional is used to fill the vertical point (Current position) 
+        if (iter_down % 2 == 1)  :
+            x[row][down_traverse] = 5
+        #In the second and every alterate iteration this conditional is used to fill the vertical point (Current position) and 2 points across (left)
         if (iter_down % 2 == 0) : 
             x[row][down_traverse] = 5
+            #Check to see if end of array is reached
             if down_traverse-1 >= 0:
                 x[row][down_traverse-1] = 5 
             else:
@@ -84,8 +135,7 @@ def solve_d06dbe63(x):
             else:
                 break
             down_traverse-=2
-        if (iter_down % 2 == 1)  :
-            x[row][down_traverse] = 5
+        #Increment iteration variable
         iter_down +=1
     return x    
 # This is a working solution for  6150a2bd - commented out because its very simple
