@@ -16,9 +16,6 @@ import re
 ### result. Name them according to the task ID as in the three
 ### examples below. Delete the three examples. The tasks you choose
 ### must be in the data/training directory, not data/evaluation.
-#def solve_0dfd9992(x):
-#    return x
-
 def solve_22eb0ac0(x):
     rows,columns = x.shape
     y = x.copy()
@@ -48,70 +45,49 @@ def solve_6cdd2623(x):
                       column_traverse[row][column] = 0
     return (np.where(row_traverse == 0, column_traverse, row_traverse))
 
-# def top_d06dbe6(x,pos_x,pos_y):
-#     columns = x.shape[1]
-    
-#     if((pos_x < (0)) or (pos_y == columns)):
-#         return
-    
-#     if((pos_x-1)<0):
-#         return
-#     x[pos_x-1][pos_y] = 5;
-    
-#     if((pos_x-2)<0):
-#         return
-#     x[pos_x-2][pos_y] = 5;
-    
-#     if((pos_y+1) == columns):
-#         return
-#     x[pos_x-2][pos_y+1] = 5;
-    
-#     if((pos_y+2)<0):
-#         return
-#     x[pos_x-2][pos_y+2] = 5; 
-
-#     return top_d06dbe6(x,pos_x-2,pos_y+2)
-
-# def bottom_d06dbe6(x,pos_x,pos_y):
-#     rows = x.shape[0]
-    
-#     if((pos_x >= (rows)) or (pos_y < 0 )):
-#         return
-    
-#     if((pos_x+1) >= rows):
-#         return
-#     x[pos_x+1][pos_y] = 5;
-    
-#     if((pos_x+2) >= rows):
-#         return
-#     x[pos_x+2][pos_y] = 5;
-    
-#     if((pos_y-1) < 0):
-#         return
-#     x[pos_x+2][pos_y-1] = 5;
-    
-#     if((pos_y-2)<0):
-#         return
-#     x[pos_x+2][pos_y-2] = 5; 
-
-#     return bottom_d06dbe6(x,pos_x+2,pos_y-2)
-    
-
-# def solve_d06dbe63(x):
-#     mid = 8
-#     rows = x.shape[0]
-#     columns = x.shape[1]
-#     mid_x = 0
-#     mid_y = 0
-#     for i in range(0,rows-1):
-#         for j in range(0,columns-1):
-#             if(x[i][j] == mid):
-#                 mid_x = i
-#                 mid_y = j
-#     top_d06dbe6(x,mid_x,mid_y)
-#     bottom_d06dbe6(x,mid_x,mid_y)
-#     return x
-    
+def solve_d06dbe63(x):
+    x = x.copy()
+    rows, columns = x.shape
+    start_row,start_column = np.where(x == x.max())
+    start_row = int(start_row)
+    up_traverse = int (start_column)
+    iter_up = 1
+## Iteratively traverse up midpoint moving 2 points up and 3 across till end of array 
+    for row in range(start_row-1, -1,-1):
+        if (iter_up % 2 == 0) :
+            x[row][up_traverse] = 5
+            if(up_traverse+1 < columns):
+                x[row][up_traverse+1] = 5
+            else:
+                break
+            if(up_traverse+1 < columns):
+                x[row][up_traverse+2] = 5 
+            else:
+                break
+            up_traverse+=2
+        if (iter_up % 2 == 1) :
+            x[row][up_traverse] = 5
+        iter_up +=1
+##initiate variable for next iteration        
+    down_traverse = int (start_column)
+    iter_down = 1
+## Iteratively traverse up midpoint moving 2 points up and 2 across till end of array    
+    for row in range(start_row+1, rows):
+        if (iter_down % 2 == 0) : 
+            x[row][down_traverse] = 5
+            if down_traverse-1 >= 0:
+                x[row][down_traverse-1] = 5 
+            else:
+                break
+            if down_traverse-2 >= 0:
+                x[row][down_traverse-2] = 5 
+            else:
+                break
+            down_traverse-=2
+        if (iter_down % 2 == 1)  :
+            x[row][down_traverse] = 5
+        iter_down +=1
+    return x    
 # This is a working solution for  6150a2bd - commented out because its very simple
 # def solve_6150a2bd(x):
 #     x = np.flip(x)
